@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ev-charging-backend
+
+app:
+  energy-charts:
+    base-url: ${PRICES_API_BASE:https://api.energy-charts.info}
+    bzn: ${BZN:DE-LU}
+  timezone: ${TIMEZONE:Europe/Amsterdam}
+
+logging:
+  level:
+    com.evcharging: INFO
+    org.springframework.cache: DEBUG
