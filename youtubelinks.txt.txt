@@ -1,3 +1,5 @@
 Build anything with claude code
 https://www.youtube.com/watch?v=hq8J-nj_Sr0
 
+cursus:
+https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/66b35/introduction
