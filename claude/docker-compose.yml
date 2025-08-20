@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - BZN=${BZN:-DE-LU}
+      - PRICES_API_BASE=${PRICES_API_BASE:-https://api.energy-charts.info}
+      - TIMEZONE=${TIMEZONE:-Europe/Amsterdam}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/prices?date=2024-01-01"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/api
+    depends_on:
+      - backend
